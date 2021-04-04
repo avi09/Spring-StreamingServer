@@ -1,1 +1,2 @@
 # Spring-StreamingServer
+Created a data warehousing and streaming platform using Spring Boot. Secured all endpoints using Spring Boot Security Adapter, created multi-part data upload and data sharing APIs.  
