@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <title>Media Sharing Website</title>
+</head>
+
+<body>
+    <center>
+        <div th:text="${username}"></div><br>
+        <form method="POST" enctype="multipart/form-data" th:action="@{save}">
+            <div>
+                File to upload -
+                <input type="file" name="file" /><br><br>
+                <input type="submit" value="Upload" />
+            </div>
+        </form><br><br>
+        <p>Available Data - </p>
+
+        <div>
+            <ul>
+                <li th:each="file : ${files}">
+                    <video width="320" height="240" controls autoplay>
+                        <source th:src="${file}" type="video/webm">
+                    </video><br>
+                    <a th:href="${file}" th:text="${file}" />
+                </li>
+            </ul>
+        </div>
+        <br><br>
+        <form th:action="@{logout}" method="POST">
+            <button type="submit" value="Sign Out">Log Out</button>
+        </form>
+    </center>
+</body>
+
+</html>
